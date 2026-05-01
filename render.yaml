@@ -12,7 +12,7 @@ services:
     buildCommand: |
       cd frontend && npm install --include=dev && npx vite build &&
       cd ../backend && npm install --include=dev && npx prisma generate && npx tsc
-    startCommand: cd backend && npx prisma migrate deploy && node dist/index.js
+    startCommand: cd backend && npx prisma db push --skip-generate && node dist/index.js
     envVars:
       - key: DATABASE_URL
         fromDatabase:
