@@ -10,8 +10,8 @@ services:
     runtime: node
     plan: free
     buildCommand: |
-      cd frontend && npm install && npx vite build &&
-      cd ../backend && npm install && npx prisma generate && npx tsc
+      cd frontend && npm install --include=dev && npx vite build &&
+      cd ../backend && npm install --include=dev && npx prisma generate && npx tsc
     startCommand: cd backend && npx prisma migrate deploy && node dist/index.js
     envVars:
       - key: DATABASE_URL
