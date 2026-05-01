@@ -1,0 +1,21 @@
+{
+  "name": "gym-management-system",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "build": "npm run build --workspace=frontend && npm run build --workspace=backend",
+    "build:frontend": "npm run build --workspace=frontend",
+    "build:backend": "npm run build --workspace=backend",
+    "start": "cd backend && npx prisma migrate deploy && node dist/index.js",
+    "seed": "npm run seed --workspace=backend",
+    "test": "npm run test --workspace=backend && npm run test --workspace=frontend",
+    "test:backend": "npm run test --workspace=backend",
+    "test:frontend": "npm run test --workspace=frontend"
+  }
+}
